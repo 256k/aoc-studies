@@ -18,9 +18,12 @@ fn group_values() -> Vec<i32> {
                     let line_val = line.trim().parse::<i32>();
                     match line_val {
                         Ok(val) => {
+                            // this allows us to handle lines of non number characters
                             temp_sum += val;
-                        },
-                        Err(e) =>{println!("{}", e)},
+                        }
+                        Err(e) => {
+                            println!("{}", e)
+                        }
                     }
                 } else {
                     totals.push(temp_sum);
@@ -28,6 +31,7 @@ fn group_values() -> Vec<i32> {
                     println!("{}: temp_sum => {}", interator, temp_sum);
                     temp_sum = 0;
                 }
+                // test
             }
             Err(err) => {
                 panic!("Error => {}", err);
